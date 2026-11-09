@@ -37,7 +37,7 @@ export function AuthShell({
       <div className="relative hidden overflow-hidden bg-ink p-10 text-white lg:flex lg:flex-col">
         <div className="absolute inset-0 surface-grid opacity-[0.18]" />
         <div className="absolute -left-24 top-1/4 h-72 w-72 rounded-full bg-brand-600/40 blur-[100px]" />
-        <div className="absolute -bottom-24 right-0 h-80 w-80 rounded-full bg-fuchsia-500/20 blur-[110px]" />
+        <div className="absolute -bottom-24 right-0 h-80 w-80 rounded-full bg-cyan-500/20 blur-[110px]" />
 
         <div className="relative z-10">
           <Brand className="[&_span]:text-white" />
@@ -51,7 +51,7 @@ export function AuthShell({
           <h2 className="mt-5 font-display text-[2.6rem] font-semibold leading-[1.08] tracking-[-0.045em]">
             The things you need,
             <br />
-            <span className="bg-gradient-to-r from-brand-300 via-brand-200 to-fuchsia-200 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-brand-300 via-brand-200 to-cyan-200 bg-clip-text text-transparent">
               only for as long as you need.
             </span>
           </h2>

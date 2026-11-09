@@ -17,7 +17,7 @@ import {
 } from "recharts";
 import { formatINR } from "@/lib/utils";
 
-const brand = ["#7c3aed", "#a680ff", "#c3adff", "#8b5cf6", "#ddd2ff", "#6d28d9", "#f0abfc", "#e9d5ff", "#4c1d95", "#d8b4fe"];
+const brand = ["#089b7c", "#14b8a6", "#5eead4", "#06b6d4", "#cffafe", "#067c66", "#a7f3d0", "#99f6e4", "#084f45", "#bae6fd"];
 
 export function RevenueChart({
   data,
@@ -30,8 +30,8 @@ export function RevenueChart({
         <AreaChart data={data} margin={{ top: 8, right: 8, left: -18, bottom: 0 }}>
           <defs>
             <linearGradient id="gmvGradient" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stopColor="#7c3aed" stopOpacity={0.3} />
-              <stop offset="100%" stopColor="#7c3aed" stopOpacity={0.02} />
+              <stop offset="0%" stopColor="#089b7c" stopOpacity={0.3} />
+              <stop offset="100%" stopColor="#089b7c" stopOpacity={0.02} />
             </linearGradient>
           </defs>
           <CartesianGrid strokeDasharray="3 3" stroke="#ece9f3" vertical={false} />
@@ -64,7 +64,7 @@ export function RevenueChart({
             type="monotone"
             dataKey="gmv"
             name="GMV"
-            stroke="#7c3aed"
+            stroke="#089b7c"
             strokeWidth={2.5}
             fill="url(#gmvGradient)"
           />
@@ -149,7 +149,7 @@ export function BookingChart({
               fontSize: 11,
             }}
           />
-          <Bar dataKey="count" name="Bookings" fill="#8b5cf6" radius={[6, 6, 0, 0]} barSize={34} />
+          <Bar dataKey="count" name="Bookings" fill="#14b8a6" radius={[6, 6, 0, 0]} barSize={34} />
         </BarChart>
       </ResponsiveContainer>
     </div>

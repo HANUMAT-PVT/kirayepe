@@ -81,7 +81,7 @@ export function AdminSidebar({ name }: { name: string }) {
               className={cn(
                 "flex items-center gap-2.5 rounded-xl px-3 py-2.5 text-xs font-medium transition",
                 active
-                  ? "bg-brand-600 text-white shadow-[0_10px_24px_-12px_rgba(109,40,217,1)]"
+                  ? "bg-brand-600 text-white shadow-[0_10px_24px_-12px_rgba(6,124,102,1)]"
                   : "text-white/55 hover:bg-white/[0.07] hover:text-white",
               )}
             >

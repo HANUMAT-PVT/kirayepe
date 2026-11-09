@@ -85,7 +85,7 @@ export default async function HomePage() {
       <section className="relative overflow-hidden">
         <div className="absolute inset-0 surface-grid opacity-60" />
         <div className="absolute -left-40 top-0 h-[420px] w-[420px] rounded-full bg-brand-200/40 blur-[120px]" />
-        <div className="absolute -right-24 top-20 h-[360px] w-[360px] rounded-full bg-fuchsia-200/30 blur-[120px]" />
+        <div className="absolute -right-24 top-20 h-[360px] w-[360px] rounded-full bg-cyan-200/30 blur-[120px]" />
 
         <div className="page-shell relative grid gap-12 pb-16 pt-12 lg:grid-cols-[1.05fr_1fr] lg:items-center lg:pb-24 lg:pt-20">
           <div className="animate-fade-up">
@@ -101,7 +101,7 @@ export default async function HomePage() {
               Don&apos;t buy it.
               <br />
               <span className="relative inline-block">
-                <span className="relative z-10 bg-gradient-to-r from-brand-700 via-brand-500 to-fuchsia-500 bg-clip-text text-transparent">
+                <span className="relative z-10 bg-gradient-to-r from-brand-700 via-brand-500 to-cyan-500 bg-clip-text text-transparent">
                   Rent it.
                 </span>
                 <svg
@@ -190,7 +190,7 @@ export default async function HomePage() {
             <div className="absolute inset-x-8 bottom-0 top-12 rounded-[2.5rem] bg-gradient-to-br from-brand-600 to-brand-900 opacity-10 blur-2xl" />
 
             <div className="relative grid grid-cols-2 gap-3">
-              <div className="col-span-2 relative aspect-[16/10] overflow-hidden rounded-[1.75rem] border-4 border-white bg-slate-100 shadow-[0_30px_70px_-25px_rgba(76,29,149,0.45)]">
+              <div className="col-span-2 relative aspect-[16/10] overflow-hidden rounded-[1.75rem] border-4 border-white bg-slate-100 shadow-[0_30px_70px_-25px_rgba(6,95,70,0.42)]">
                 {heroProducts[0] && (
                   <>
                     <SmartImage
@@ -355,7 +355,7 @@ export default async function HomePage() {
         <div className="relative overflow-hidden rounded-[2.25rem] bg-ink px-6 py-12 text-white sm:px-10 lg:px-14">
           <div className="absolute inset-0 surface-grid opacity-20" />
           <div className="absolute -right-20 -top-20 h-72 w-72 rounded-full bg-brand-600/40 blur-[90px]" />
-          <div className="absolute -bottom-24 left-1/3 h-64 w-64 rounded-full bg-fuchsia-500/20 blur-[90px]" />
+          <div className="absolute -bottom-24 left-1/3 h-64 w-64 rounded-full bg-cyan-500/20 blur-[90px]" />
 
           <div className="relative grid gap-10 lg:grid-cols-[0.85fr_1.6fr] lg:items-center">
             <div>
@@ -471,7 +471,7 @@ export default async function HomePage() {
         id="become-a-seller"
         className="page-shell mt-24 scroll-mt-32"
       >
-        <div className="relative overflow-hidden rounded-[2.25rem] bg-gradient-to-br from-brand-700 via-brand-600 to-fuchsia-600 px-6 py-12 text-white sm:px-10 lg:px-14">
+        <div className="relative overflow-hidden rounded-[2.25rem] bg-gradient-to-br from-brand-700 via-brand-600 to-cyan-600 px-6 py-12 text-white sm:px-10 lg:px-14">
           <div className="absolute inset-0 surface-grid opacity-20" />
           <div className="absolute -right-16 -top-20 h-72 w-72 rounded-full border border-white/15" />
           <div className="absolute -bottom-28 right-16 h-64 w-64 rounded-full border border-white/10" />

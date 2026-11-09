@@ -66,7 +66,7 @@ export default async function AdminUserDetailPage({
 
       <div className="mt-4 grid gap-4 xl:grid-cols-[1.5fr_1fr]">
         <div className="card overflow-hidden">
-          <div className="h-20 bg-gradient-to-r from-brand-700 via-brand-600 to-fuchsia-600" />
+          <div className="h-20 bg-gradient-to-r from-brand-700 via-brand-600 to-cyan-600" />
           <div className="-mt-8 px-5 pb-5">
             <div className="flex flex-wrap items-end justify-between gap-3">
               <Avatar

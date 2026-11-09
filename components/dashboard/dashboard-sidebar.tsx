@@ -95,7 +95,7 @@ export function DashboardSidebar({
               className={cn(
                 "group flex items-center gap-2.5 rounded-xl px-3 py-2.5 text-xs font-medium transition",
                 active
-                  ? "bg-brand-600 text-white shadow-[0_10px_20px_-12px_rgba(109,40,217,0.9)]"
+                  ? "bg-brand-600 text-white shadow-[0_10px_20px_-12px_rgba(6,124,102,0.9)]"
                   : "text-slate-500 hover:bg-slate-100 hover:text-ink",
               )}
             >

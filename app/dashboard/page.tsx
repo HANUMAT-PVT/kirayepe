@@ -182,7 +182,7 @@ export default async function DashboardPage() {
 
       <div className="mt-4 grid gap-3 sm:grid-cols-2 xl:grid-cols-2">
         <div className="card flex items-center gap-4 p-5">
-          <span className="grid h-11 w-11 place-items-center rounded-xl bg-violet-50 text-violet-600">
+          <span className="grid h-11 w-11 place-items-center rounded-xl bg-teal-50 text-teal-600">
             <Wallet className="h-5 w-5" />
           </span>
           <div>
@@ -433,7 +433,7 @@ export default async function DashboardPage() {
           <div className="mt-4 flex items-center gap-3">
             <div className="h-2 flex-1 overflow-hidden rounded-full bg-slate-100">
               <div
-                className="h-full rounded-full bg-gradient-to-r from-brand-500 to-fuchsia-500"
+                className="h-full rounded-full bg-gradient-to-r from-brand-500 to-cyan-500"
                 style={{ width: `${completion}%` }}
               />
             </div>

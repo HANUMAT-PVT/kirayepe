@@ -1,16 +1,16 @@
 @import "tailwindcss";
 
 @theme {
-  --color-brand-50: #f6f3ff;
-  --color-brand-100: #ede7ff;
-  --color-brand-200: #ddd2ff;
-  --color-brand-300: #c3adff;
-  --color-brand-400: #a680ff;
-  --color-brand-500: #8b5cf6;
-  --color-brand-600: #7c3aed;
-  --color-brand-700: #6d28d9;
-  --color-brand-800: #5b21b6;
-  --color-brand-900: #4c1d95;
+  --color-brand-50: #ecfdf7;
+  --color-brand-100: #d0fbec;
+  --color-brand-200: #a4f5dc;
+  --color-brand-300: #6aeac7;
+  --color-brand-400: #33d7ad;
+  --color-brand-500: #13bd96;
+  --color-brand-600: #089b7c;
+  --color-brand-700: #067c66;
+  --color-brand-800: #086354;
+  --color-brand-900: #084f45;
   --color-ink: #15131f;
   --color-muted: #6f6b7d;
   --color-canvas: #f8f7fc;
@@ -18,7 +18,7 @@
   --font-display: var(--font-poppins), var(--font-inter), ui-sans-serif, sans-serif;
   --radius-4xl: 2rem;
   --shadow-soft: 0 1px 2px rgb(21 19 31 / 0.04), 0 12px 32px -12px rgb(21 19 31 / 0.12);
-  --shadow-lift: 0 2px 4px rgb(21 19 31 / 0.04), 0 24px 48px -16px rgb(76 29 149 / 0.2);
+  --shadow-lift: 0 2px 4px rgb(21 19 31 / 0.04), 0 24px 48px -16px rgb(6 124 102 / 0.2);
 }
 
 :root {
@@ -38,8 +38,8 @@ body {
 }
 
 ::selection {
-  background: #ddd2ff;
-  color: #4c1d95;
+  background: #a4f5dc;
+  color: #084f45;
 }
 
 h1,
@@ -53,7 +53,7 @@ h5 {
 
 * {
   scrollbar-width: thin;
-  scrollbar-color: #cfc8e4 transparent;
+  scrollbar-color: #c9e6de transparent;
 }
 
 @layer components {
@@ -100,13 +100,13 @@ h5 {
   }
 
   .btn-primary {
-    background: #7c3aed;
+    background: #089b7c;
     color: #fff;
-    box-shadow: 0 10px 24px -10px rgba(109, 40, 217, 0.75);
+    box-shadow: 0 10px 24px -10px rgba(6, 124, 102, 0.65);
   }
 
   .btn-primary:hover:not(:disabled) {
-    background: #6d28d9;
+    background: #067c66;
     transform: translateY(-2px);
   }
 
@@ -117,9 +117,9 @@ h5 {
   }
 
   .btn-secondary:hover:not(:disabled) {
-    border-color: #ddd2ff;
+    border-color: #a4f5dc;
     background: #f6f3ff;
-    color: #6d28d9;
+    color: #067c66;
   }
 
   .btn-dark {
@@ -128,7 +128,7 @@ h5 {
   }
 
   .btn-dark:hover:not(:disabled) {
-    background: #6d28d9;
+    background: #067c66;
     transform: translateY(-2px);
   }
 
@@ -185,8 +185,8 @@ h5 {
 
   .input:focus,
   .textarea:focus {
-    border-color: #a680ff;
-    box-shadow: 0 0 0 4px rgba(139, 92, 246, 0.12);
+    border-color: #33d7ad;
+    box-shadow: 0 0 0 4px rgba(19, 189, 150, 0.14);
   }
 
   .label {
@@ -224,8 +224,8 @@ h5 {
 
   .surface-grid {
     background-image:
-      linear-gradient(to right, rgba(109, 40, 217, 0.045) 1px, transparent 1px),
-      linear-gradient(to bottom, rgba(109, 40, 217, 0.045) 1px, transparent 1px);
+      linear-gradient(to right, rgba(8, 155, 124, 0.05) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(8, 155, 124, 0.05) 1px, transparent 1px);
     background-size: 32px 32px;
   }
 
@@ -235,7 +235,7 @@ h5 {
 
   .hover-lift:hover {
     transform: translateY(-4px);
-    box-shadow: 0 28px 56px -28px rgba(76, 29, 149, 0.35);
+    box-shadow: 0 28px 56px -28px rgba(6, 95, 70, 0.3);
   }
 
   .line-clamp-1 {
@@ -283,13 +283,13 @@ h5 {
 
 @keyframes pulse-ring {
   0% {
-    box-shadow: 0 0 0 0 rgba(139, 92, 246, 0.28);
+    box-shadow: 0 0 0 0 rgba(19, 189, 150, 0.3);
   }
   70% {
-    box-shadow: 0 0 0 12px rgba(139, 92, 246, 0);
+    box-shadow: 0 0 0 12px rgba(19, 189, 150, 0);
   }
   100% {
-    box-shadow: 0 0 0 0 rgba(139, 92, 246, 0);
+    box-shadow: 0 0 0 0 rgba(19, 189, 150, 0);
   }
 }
 
