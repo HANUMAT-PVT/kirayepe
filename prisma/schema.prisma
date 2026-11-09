@@ -1,0 +1,201 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id           String   @id @default(auto()) @map("_id") @db.ObjectId
+  name         String
+  email        String   @unique
+  passwordHash String
+  role         String   @default("USER")
+  avatar       String?
+  phone        String?
+  bio          String?
+  city         String?
+  isSuspended  Boolean  @default(false)
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  products            Product[]      @relation("SellerProducts")
+  bookings            Booking[]      @relation("RenterBookings")
+  sales               Booking[]      @relation("SellerBookings")
+  sentMessages        Message[]      @relation("SenderMessages")
+  customerChats       Conversation[] @relation("CustomerConversations")
+  sellerChats         Conversation[] @relation("SellerConversations")
+  wishlist            Wishlist[]
+  reviewsWritten      Review[]       @relation("ReviewAuthor")
+  reviewsReceived     Review[]       @relation("ReviewTarget")
+  notifications       Notification[]
+
+  @@index([role])
+  @@index([createdAt])
+}
+
+model Category {
+  id          String    @id @default(auto()) @map("_id") @db.ObjectId
+  name        String
+  slug        String    @unique
+  description String
+  icon        String
+  image       String
+  createdAt   DateTime  @default(now())
+
+  products Product[]
+}
+
+model Product {
+  id           String   @id @default(auto()) @map("_id") @db.ObjectId
+  title        String
+  description  String
+  brand        String
+  condition    String   @default("GOOD")
+  images       String[] @default([])
+  dailyPrice   Float
+  weeklyPrice  Float
+  monthlyPrice Float
+  sixMonthPrice Float
+  yearlyPrice  Float
+  extraDayPrice Float
+  securityDeposit Float
+  location     String
+  city         String
+  isAvailable  Boolean  @default(true)
+  status       String   @default("PENDING")
+  isFeatured   Boolean  @default(false)
+  views        Int      @default(0)
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  categoryId String   @db.ObjectId
+  category   Category @relation(fields: [categoryId], references: [id])
+  sellerId   String   @db.ObjectId
+  seller     User     @relation("SellerProducts", fields: [sellerId], references: [id])
+
+  bookings      Booking[]
+  conversations Conversation[]
+  reviews       Review[]
+  wishlistedBy  Wishlist[]
+
+  @@index([categoryId])
+  @@index([sellerId])
+  @@index([status])
+  @@index([city])
+  @@index([createdAt])
+}
+
+model Booking {
+  id             String   @id @default(auto()) @map("_id") @db.ObjectId
+  startDate      DateTime
+  endDate        DateTime
+  duration       String
+  days           Int
+  rentalAmount   Float
+  securityDeposit Float
+  platformFee    Float
+  totalAmount    Float
+  status         String   @default("PENDING")
+  paymentStatus  String   @default("DEMO_PAID")
+  demoPaymentRef String
+  notes          String?
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+
+  productId String  @db.ObjectId
+  product   Product @relation(fields: [productId], references: [id])
+  renterId  String  @db.ObjectId
+  renter    User    @relation("RenterBookings", fields: [renterId], references: [id])
+  sellerId  String  @db.ObjectId
+  seller    User    @relation("SellerBookings", fields: [sellerId], references: [id])
+
+  @@index([renterId])
+  @@index([sellerId])
+  @@index([productId])
+  @@index([status])
+  @@index([createdAt])
+}
+
+model Conversation {
+  id            String   @id @default(auto()) @map("_id") @db.ObjectId
+  lastMessageAt DateTime @default(now())
+  createdAt     DateTime @default(now())
+
+  productId  String  @db.ObjectId
+  product    Product @relation(fields: [productId], references: [id])
+  customerId String  @db.ObjectId
+  customer   User    @relation("CustomerConversations", fields: [customerId], references: [id])
+  sellerId   String  @db.ObjectId
+  seller     User    @relation("SellerConversations", fields: [sellerId], references: [id])
+
+  messages Message[]
+
+  @@unique([productId, customerId, sellerId])
+  @@index([customerId])
+  @@index([sellerId])
+}
+
+model Message {
+  id             String   @id @default(auto()) @map("_id") @db.ObjectId
+  body           String
+  createdAt      DateTime @default(now())
+  readAt         DateTime?
+
+  conversationId String       @db.ObjectId
+  conversation   Conversation @relation(fields: [conversationId], references: [id])
+  senderId       String       @db.ObjectId
+  sender         User         @relation("SenderMessages", fields: [senderId], references: [id])
+
+  @@index([conversationId])
+  @@index([senderId])
+  @@index([createdAt])
+}
+
+model Review {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  rating    Int
+  comment   String
+  createdAt DateTime @default(now())
+
+  productId String  @db.ObjectId
+  product   Product @relation(fields: [productId], references: [id])
+  authorId  String  @db.ObjectId
+  author    User    @relation("ReviewAuthor", fields: [authorId], references: [id])
+  targetId  String  @db.ObjectId
+  target    User    @relation("ReviewTarget", fields: [targetId], references: [id])
+
+  @@index([productId])
+  @@index([targetId])
+}
+
+model Wishlist {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  createdAt DateTime @default(now())
+
+  userId    String  @db.ObjectId
+  user      User    @relation(fields: [userId], references: [id])
+  productId String  @db.ObjectId
+  product   Product @relation(fields: [productId], references: [id])
+
+  @@unique([userId, productId])
+  @@index([userId])
+}
+
+model Notification {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  type      String
+  title     String
+  message   String
+  href      String?
+  read      Boolean  @default(false)
+  createdAt DateTime @default(now())
+
+  userId String @db.ObjectId
+  user   User   @relation(fields: [userId], references: [id])
+
+  @@index([userId])
+  @@index([read])
+}
