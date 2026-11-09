@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import { LogOut, Mail, Shield, UserX } from "lucide-react";
+import { Loader2, LogOut, Mail, Shield, UserX } from "lucide-react";
 
 export function SettingsPanel({
   email,
@@ -12,6 +12,7 @@ export function SettingsPanel({
   role: string;
 }) {
   const router = useRouter();
+  const [loggingOut, setLoggingOut] = useState(false);
   const [prefs, setPrefs] = useState({
     bookingEmails: true,
     messageEmails: true,
@@ -19,6 +20,7 @@ export function SettingsPanel({
   });
 
   async function logout() {
+    setLoggingOut(true);
     await fetch("/api/auth/logout", { method: "POST" });
     router.push("/");
     router.refresh();
@@ -124,9 +126,15 @@ export function SettingsPanel({
         <button
           type="button"
           onClick={logout}
+          disabled={loggingOut}
           className="btn-secondary mt-3 border-rose-200 text-rose-600 hover:bg-rose-50"
         >
-          <LogOut className="h-4 w-4" /> Sign out of KirayePe
+          {loggingOut ? (
+            <Loader2 className="h-4 w-4 animate-spin" />
+          ) : (
+            <LogOut className="h-4 w-4" />
+          )}
+          {loggingOut ? "Signing out…" : "Sign out of KirayePe"}
         </button>
       </div>
     </div>

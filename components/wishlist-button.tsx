@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import { Heart } from "lucide-react";
+import { Heart, Loader2 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 export function WishlistButton({
@@ -62,8 +62,12 @@ export function WishlistButton({
         className,
       )}
     >
-      <Heart className={cn("h-4 w-4", saved && "fill-rose-500 text-rose-500")} />
-      {showLabel && <span>{saved ? "Saved" : "Save"}</span>}
+      {busy ? (
+        <Loader2 className="h-4 w-4 animate-spin" />
+      ) : (
+        <Heart className={cn("h-4 w-4", saved && "fill-rose-500 text-rose-500")} />
+      )}
+      {showLabel && <span>{busy ? "Saving…" : saved ? "Saved" : "Save"}</span>}
     </button>
   );
 }

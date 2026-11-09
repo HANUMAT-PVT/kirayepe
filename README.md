@@ -1,5 +1,7 @@
 # KirayePe — Don't Buy It. Rent It.
 
+> New here? Read **[PROJECT_GUIDE.md](./PROJECT_GUIDE.md)** for what the app does and how every flow works, and **[TEAM_SETUP.md](./TEAM_SETUP.md)** for copy-paste setup, demo script and troubleshooting.
+
 A complete rental marketplace built as a college project with **Next.js 16 (App Router)**, **TypeScript**, **Tailwind CSS 4**, **MongoDB**, **Prisma**, **React Hook Form + Zod**, **bcrypt/JWT auth**, **Cloudinary-ready uploads**, **Lucide icons** and **Recharts** analytics.
 
 Users rent products from other users by the day, week, month, six months or year. Sellers list products, manage bookings, chat with renters and earn. Admins moderate the whole platform.

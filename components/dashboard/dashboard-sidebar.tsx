@@ -6,6 +6,7 @@ import { usePathname, useRouter } from "next/navigation";
 import {
   Heart,
   LayoutDashboard,
+  Loader2,
   LogOut,
   Menu,
   MessageCircle,
@@ -149,9 +150,13 @@ export function DashboardSidebar({
           type="button"
           onClick={logout}
           disabled={loggingOut}
-          className="flex w-full items-center gap-2.5 rounded-xl px-3 py-2.5 text-xs font-medium text-rose-500 transition hover:bg-rose-50"
+          className="flex w-full items-center gap-2.5 rounded-xl px-3 py-2.5 text-xs font-medium text-rose-500 transition hover:bg-rose-50 disabled:opacity-60"
         >
-          <LogOut className="h-4 w-4" />
+          {loggingOut ? (
+            <Loader2 className="h-4 w-4 animate-spin" />
+          ) : (
+            <LogOut className="h-4 w-4" />
+          )}
           {loggingOut ? "Signing out…" : "Sign out"}
         </button>
       </div>

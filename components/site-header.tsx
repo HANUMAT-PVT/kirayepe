@@ -7,6 +7,7 @@ import {
   ChevronDown,
   Heart,
   LayoutDashboard,
+  Loader2,
   LogOut,
   Menu,
   MessageCircle,
@@ -197,9 +198,13 @@ export function SiteHeader({ user }: { user: HeaderUser | null }) {
                         type="button"
                         onClick={logout}
                         disabled={loggingOut}
-                        className="mt-1 flex w-full items-center gap-2.5 rounded-xl border-t border-slate-100 px-3 pt-3 pb-2.5 text-sm font-medium text-rose-600 transition hover:bg-rose-50"
+                        className="mt-1 flex w-full items-center gap-2.5 rounded-xl border-t border-slate-100 px-3 pt-3 pb-2.5 text-sm font-medium text-rose-600 transition hover:bg-rose-50 disabled:opacity-60"
                       >
-                        <LogOut className="h-4 w-4" />
+                        {loggingOut ? (
+                          <Loader2 className="h-4 w-4 animate-spin" />
+                        ) : (
+                          <LogOut className="h-4 w-4" />
+                        )}
                         {loggingOut ? "Signing out…" : "Sign out"}
                       </button>
                     </div>

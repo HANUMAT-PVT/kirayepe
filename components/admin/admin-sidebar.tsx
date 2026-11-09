@@ -8,6 +8,7 @@ import {
   CalendarCheck,
   ExternalLink,
   LayoutDashboard,
+  Loader2,
   LogOut,
   Menu,
   Package,
@@ -29,8 +30,10 @@ export function AdminSidebar({ name }: { name: string }) {
   const pathname = usePathname();
   const router = useRouter();
   const [open, setOpen] = useState(false);
+  const [loggingOut, setLoggingOut] = useState(false);
 
   async function logout() {
+    setLoggingOut(true);
     await fetch("/api/auth/logout", { method: "POST" });
     router.push("/login");
     router.refresh();
@@ -114,9 +117,15 @@ export function AdminSidebar({ name }: { name: string }) {
         <button
           type="button"
           onClick={logout}
-          className="flex w-full items-center gap-2.5 rounded-xl px-3 py-2.5 text-xs font-medium text-rose-300 transition hover:bg-rose-500/10"
+          disabled={loggingOut}
+          className="flex w-full items-center gap-2.5 rounded-xl px-3 py-2.5 text-xs font-medium text-rose-300 transition hover:bg-rose-500/10 disabled:opacity-60"
         >
-          <LogOut className="h-4 w-4" /> Sign out
+          {loggingOut ? (
+            <Loader2 className="h-4 w-4 animate-spin" />
+          ) : (
+            <LogOut className="h-4 w-4" />
+          )}
+          {loggingOut ? "Signing out…" : "Sign out"}
         </button>
       </div>
     </div>
